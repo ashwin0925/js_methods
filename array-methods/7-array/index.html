@@ -12,35 +12,67 @@
       // Go through todo.md before start solving.
       function countAllPeople() {
         // your code goes here
+        return got.houses.reduce((acc,cv)=>{
+          acc=acc+cv.people.length;
+          return acc
+        },0);
         console.log(got);
       }
 
       function peopleByHouses() {
         // your code goes here
+        return got.houses.reduce((acc,cv)=>{
+         acc[cv.name] = cv.people.length
+        return acc
+        },{});
       }
 
       function everyone() {
         // your code goes here
+        return got.houses.reduce((acc,cv)=>{
+          cv.people.forEach((n) => acc.push(n.name) )
+          return acc;
+        },[])
       }
 
       function nameWithS() {
         // your code goes here
+        return got.houses.reduce((acc,cv)=>{
+          cv.people.forEach((n) => acc.push(n.name))
+          return acc.filter((name) => name.toLowerCase().includes('s'))
+        },[])
       }
 
       function nameWithA() {
         // your code goes here
+        return got.houses.reduce((acc,cv)=>{
+          cv.people.forEach((n) => acc.push(n.name))
+          return acc.filter((name) => name.toLowerCase().includes('a'))
+        },[])
       }
 
       function surnameWithS() {
         // your code goes here
+        return got.houses.reduce((acc,cv)=>{
+          cv.people.forEach((n) => acc.push(n.name))
+          return acc.filter((name) => name.includes('S'))
+        },[])
       }
 
       function surnameWithA() {
         // your code goes here
+        return got.houses.reduce((acc,cv)=>{
+          cv.people.forEach((n) => acc.push(n.name))
+          return acc.filter((name) => name.includes('A'))
+        },[])
       }
 
       function peopleNameOfAllHouses() {
         // your code goes here
+        return got.houses.reduce((acc,cv)=>{
+          cv.people.forEach((n) => acc.push(n.name) )
+          return acc;
+        },[])
       }
 
       // Testing your result after writing your function
@@ -53,7 +85,7 @@
 
       console.log(everyone());
       // Output should be
-      //["Eddard "Ned" Stark", "Benjen Stark", "Robb Stark", "Sansa Stark", "Arya Stark", "Brandon "Bran" Stark", "Rickon Stark", "Jon Snow", "Tywin Lannister", "Tyrion Lannister", "Jaime Lannister", "Queen Cersei (Lannister) Baratheon", "King Robert Baratheon", "Stannis Baratheon", "Renly Baratheon", "Joffrey Baratheon", "Tommen Baratheon", "Myrcella Baratheon", "Daenerys Targaryen", "Viserys Targaryen", "Balon Greyjoy", "Theon Greyjoy", "Yara Greyjoy", "Margaery (Tyrell) Baratheon", "Loras Tyrell", "Catelyn (Tully) Stark", "Lysa (Tully) Arryn", "Edmure Tully", "Brynden Tully", "Olenna (Redwyne) Tyrell", "Walder Frey", "Jon Arryn", "Khal Drogo"]
+      //["Eddard Stark", "Benjen Stark", "Robb Stark", "Sansa Stark", "Arya Stark", "Brandon "Bran" Stark", "Rickon Stark", "Jon Snow", "Tywin Lannister", "Tyrion Lannister", "Jaime Lannister", "Queen Cersei (Lannister) Baratheon", "King Robert Baratheon", "Stannis Baratheon", "Renly Baratheon", "Joffrey Baratheon", "Tommen Baratheon", "Myrcella Baratheon", "Daenerys Targaryen", "Viserys Targaryen", "Balon Greyjoy", "Theon Greyjoy", "Yara Greyjoy", "Margaery (Tyrell) Baratheon", "Loras Tyrell", "Catelyn (Tully) Stark", "Lysa (Tully) Arryn", "Edmure Tully", "Brynden Tully", "Olenna (Redwyne) Tyrell", "Walder Frey", "Jon Arryn", "Khal Drogo"]
 
       console.log(nameWithS());
       // Output should be

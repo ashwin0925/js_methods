@@ -14,7 +14,17 @@ var words = [
 
 // Write a function uniqueArray that receives an array of words as a parameter. And remove the duplicates, and return a new array. 
 // (indexOf)
-
+function uniqueArray(arr){
+  var newarr = [];
+  arr.forEach(n => {
+    if(newarr.indexOf(n) === -1){
+      newarr.push(n);
+    }
+  });
+  return newarr;
+}
+uniqueArray(words);
+  
 
 
 var words2 = [
@@ -29,7 +39,15 @@ var words2 = [
 ];
 
 // Write a function doesWordExist that will take in an array of words as one argument, and a word to search for as the other. Return true if it exists, otherwise, return false. Don't use indexOf for this one.
-
+function doesWordExist(arr,str){
+  if(arr.includes(str)){
+    return true;
+    }
+      else{
+        return false
+      }
+    }
+    doesWordExist(words2,'subset');
 
 
 
@@ -49,8 +67,16 @@ var words3 = [
 
 
 // Write a function howManyTimes that will take in an array of words as one argument, and a word to search for as the other. The function will return the number of times that word appears in the array.
-
-
+function howManyTimes(arr,str){
+  var sum =0;
+  arr.forEach(n=>{
+    if(n==str) {
+      sum = sum+1;
+    }
+  }); 
+return sum;
+}
+howManyTimes(words3,'matter')
 
 
 
@@ -74,7 +100,12 @@ let data = [
   }
 ]
 
-
+data.reduce((acc,val)=>{
+  if(val.country=='China')
+  return acc;
+  else {
+ return acc+ val.pop}
+},0);
 // Use reduce method and summorize the collection like
 // { banana: 2, cherry: 3, orange: 3, apple: 2, fig: 1 }
 const fruitBasket = [
@@ -90,6 +121,16 @@ const fruitBasket = [
   'orange',
   'fig'
 ];
+
+fruitBasket.reduce((acc,cv) => {
+if(acc[cv]){
+  acc[cv]=acc[cv]+1;
+}
+else {
+  acc[cv]=1;
+}
+  return acc;
+},{});
 
 
 
